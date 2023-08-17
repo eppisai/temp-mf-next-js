@@ -1,7 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-const test = await import('mfe1/Test');
-const Test = test.default;
+import dynamic from "next/dynamic";
+const Test = dynamic(() => import("mfe1/Test"), {
+  ssr: false,
+});
+// const test = await import('mfe1/Test');
+// console.log(test);
+// const Test = test.default;
 export default function Home() {
   return (
     <>
